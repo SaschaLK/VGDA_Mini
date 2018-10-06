@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Main.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Kenny MainMenu.unity
+    guid: 43f38b434c2d8a74e8b520d69a79ce5a
+  - enabled: 1
+    path: Assets/Scenes/KennyTestLoad.unity
+    guid: 81b456fe704156641b214989cb4ab71e
   m_configObjects: {}
