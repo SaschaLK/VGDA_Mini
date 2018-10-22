@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MobManager : MonoBehaviour {
+public class MobManager : MonoBehaviour
+{
 
     private static MobManager thisInstance;
-    public  Transform playerPos;
-    public GameObject mobPrefab;
+    public Transform playerPos;
+    public GameObject[] mobList;
     private int mobCount = 0;
-    public int maxMob = 5;
+    //public int maxMob = 5;
     public Transform spawnPoint;
+
+
 
     // Use this for initialization
 
@@ -22,16 +25,20 @@ public class MobManager : MonoBehaviour {
             DontDestroyOnLoad(thisInstance);
         }
 
+        loadMob();
+
     }
-    void Start () {
+    void Start()
+    {
         spawnMob();
 
 
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
     }
 
@@ -42,21 +49,36 @@ public class MobManager : MonoBehaviour {
         return thisInstance.playerPos;
     }
 
-    private void spawnMob() {
+    private void spawnMob()
+    {
 
-        if (thisInstance.mobCount < thisInstance.maxMob) {
-            GameObject mobb = GameObject.Instantiate(thisInstance.mobPrefab);
-            mobb.transform.position = thisInstance.spawnPoint.position;
+        if (thisInstance.mobCount < mobList.Length)
+        {
+
+            thisInstance.mobList[mobCount].SetActive(true);
+
+            thisInstance.mobList[mobCount].transform.position = thisInstance.spawnPoint.position;
+
             thisInstance.mobCount++;
-            
         }
 
         thisInstance.Invoke("spawnMob", 5f);
 
     }
 
-   
+    private void loadMob()
+    {
+        for (int i = 0; i < mobList.Length; i++)
+        {
+            thisInstance.mobList[i] = GameObject.Instantiate(thisInstance.mobList[i]);
+            thisInstance.mobList[i].SetActive(false);
 
 
-   
+        }
+    }
+
+
+
+
+
 }
