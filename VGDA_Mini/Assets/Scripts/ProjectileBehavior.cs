@@ -5,11 +5,12 @@ using UnityEngine;
 public class ProjectileBehavior : MonoBehaviour {
 
     // Use this for initialization
-
-    private void Awake()
-    {
-        Invoke("SelfDestruct", 4f);
-    }
+    
+   // private void Awake()
+   // {
+        //Invoke("SelfDestruct", 4f);
+      
+    //}
     //void Start () {
 
     //}
@@ -22,6 +23,7 @@ public class ProjectileBehavior : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collision.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 
     private void SelfDestruct()

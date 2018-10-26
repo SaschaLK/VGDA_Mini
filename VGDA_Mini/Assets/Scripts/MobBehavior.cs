@@ -39,9 +39,14 @@ public class MobBehavior : MonoBehaviour {
         if (!projectilePrefab.activeSelf) {
             projectilePrefab.SetActive(true);
             projectilePrefab.transform.position = this.transform.position;
+            projectilePrefab.GetComponent<Rigidbody2D>().velocity = 
+                new Vector2((targetPos.position.x - transform.position.x)* .3f,
+                (targetPos.position.y - transform.position.y) * .3f);
+
+            Invoke("killProjectile", 4f);
 
         }
-        
+
     }
 
     void Start()
@@ -55,6 +60,11 @@ public class MobBehavior : MonoBehaviour {
         FollowPlayer(); //move towards the player
         Shoot();
 
+    }
+
+    private void killProjectile()
+    {
+        projectilePrefab.SetActive(false);
     }
 
 }
