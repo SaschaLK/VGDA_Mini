@@ -155,8 +155,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 1434529371}
-  mobPrefab: {fileID: 1556615041543004, guid: a1c75a0c04c7cc743a494baebff0088f, type: 2}
-  maxMob: 5
+  mobList:
+  - {fileID: 1556615041543004, guid: a1c75a0c04c7cc743a494baebff0088f, type: 2}
+  - {fileID: 1556615041543004, guid: a1c75a0c04c7cc743a494baebff0088f, type: 2}
+  - {fileID: 1556615041543004, guid: a1c75a0c04c7cc743a494baebff0088f, type: 2}
+  - {fileID: 1556615041543004, guid: a1c75a0c04c7cc743a494baebff0088f, type: 2}
+  - {fileID: 1556615041543004, guid: a1c75a0c04c7cc743a494baebff0088f, type: 2}
   spawnPoint: {fileID: 1040614728}
 --- !u!1 &750094275
 GameObject:
