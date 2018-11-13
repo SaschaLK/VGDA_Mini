@@ -156,11 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPos: {fileID: 1434529371}
   mobList:
-  - {fileID: 1976642689023286, guid: 23844c82253109d41932e63be93d6733, type: 2}
-  - {fileID: 1976642689023286, guid: 23844c82253109d41932e63be93d6733, type: 2}
-  - {fileID: 1976642689023286, guid: 23844c82253109d41932e63be93d6733, type: 2}
-  - {fileID: 1976642689023286, guid: 23844c82253109d41932e63be93d6733, type: 2}
-  - {fileID: 1976642689023286, guid: 23844c82253109d41932e63be93d6733, type: 2}
+  - {fileID: 1175913970934738, guid: 7dbbb2a8d423d1a4489d19439d9c8aef, type: 2}
   spawnPoint: {fileID: 1040614728}
 --- !u!1 &750094275
 GameObject:
@@ -186,8 +182,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 750094275}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.793138, y: -2.2552497, z: -0.10491419}
-  m_LocalScale: {x: 121.288315, y: 8.4826, z: 1}
+  m_LocalPosition: {x: 3.793138, y: -2.095, z: -0.10491419}
+  m_LocalScale: {x: 121.288315, y: 10.484493, z: 1}
   m_Children: []
   m_Father: {fileID: 2040396745}
   m_RootOrder: 0

@@ -8,10 +8,14 @@ public class MobBehavior : MonoBehaviour {
     public float speed = 3f;
     public GameObject projectilePrefab;
     //public Vector2 targetPos;
+    public Rigidbody2D rb ;
+
 
     private void Awake()
     {
         LoadProjectile();
+        rb = GetComponent<Rigidbody2D>();
+        
     }
 
     private void LoadProjectile()
@@ -24,13 +28,13 @@ public class MobBehavior : MonoBehaviour {
     {
         if ((targetPos.position.x - transform.position.x) > 0.1f)
         {
-            transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+            transform.Translate(new Vector3(speed * Time.deltaTime, rb.velocity.y, 0));
         }
         else
         {
             if ((targetPos.position.x - transform.position.x) < -0.1f)
             {
-                transform.Translate(new Vector3(-1 * speed * Time.deltaTime, 0, 0));
+                transform.Translate(new Vector3(-1 * speed * Time.deltaTime, rb.velocity.y, 0));
             }
         }
     }
