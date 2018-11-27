@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1434529371}
-  shootRange: 1000
+  shootRange: 10000
 --- !u!1 &1474441620
 GameObject:
   m_ObjectHideFlags: 0
