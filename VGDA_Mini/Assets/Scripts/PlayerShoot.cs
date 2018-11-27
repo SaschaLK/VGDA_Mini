@@ -14,11 +14,16 @@ public class PlayerShoot : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonDown("Fire1"))
         {
-            Debug.Log("Did");
+            //Debug.Log("Did");
             RaycastHit hit;
-            Vector2 raycastDir = Input.mousePosition - playerTransform.position  ;
-            
+            Vector2 mousePos = Input.mousePosition;
+            Vector2 raycastDir = //Input.mousePosition - playerTransform.position  ;
+            new Vector2(mousePos.x - playerTransform.position.x, mousePos.y - playerTransform.position.y);
 
+            Debug.Log("X");
+            Debug.Log(raycastDir.x);
+            Debug.Log("Y");
+            Debug.Log(raycastDir.y);
 
             Debug.DrawRay(playerTransform.position,raycastDir, Color.red, 5);
             if (Physics.Raycast(playerTransform.position, raycastDir, out hit, shootRange))
