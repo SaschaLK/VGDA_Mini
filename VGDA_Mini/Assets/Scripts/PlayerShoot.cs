@@ -21,7 +21,7 @@ public class PlayerShoot : MonoBehaviour {
 
     public void shoot() {
 
-        RaycastHit hit;
+        //RaycastHit hit;
 
         Vector3 mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
@@ -34,10 +34,28 @@ public class PlayerShoot : MonoBehaviour {
 
         Debug.DrawRay(playerTransform.position, raycastDir, Color.red, 5);
 
-        if (Physics.Raycast(playerTransform.position, raycastDir, out hit, shootRange))
+
+        //if (Physics.Raycast(playerTransform.position, raycastDir, out hit, shootRange)) // DOESNT WORK FOR 2D STUFF
+       // {
+         //   hit.collider.gameObject.SetActive(false);
+         //   Debug.Log("Did  Hit");
+       // }
+     
+
+
+
+
+         RaycastHit2D hitt = Physics2D.Raycast(playerTransform.position, raycastDir);
+
+        if (hitt.collider != null)
         {
-            hit.collider.gameObject.SetActive(false);
-            Debug.Log("Did  Hit");
+
+            if (hitt.collider.tag == "Enemy") {
+                hitt.collider.gameObject.SetActive(false);
+                Debug.Log("Did  Hit");
+            }
+            
+            
         }
     }
 
