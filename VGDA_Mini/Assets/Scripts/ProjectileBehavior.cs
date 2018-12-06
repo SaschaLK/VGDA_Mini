@@ -4,30 +4,7 @@ using UnityEngine;
 
 public class ProjectileBehavior : MonoBehaviour {
 
-    // Use this for initialization
-    
-   // private void Awake()
-   // {
-        //Invoke("SelfDestruct", 4f);
-      
-    //}
-    //void Start () {
-
-    //}
-
-    // Update is called once per frame
-    //void Update () {
-
-    //}
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        collision.gameObject.SetActive(false);
-        this.gameObject.SetActive(false);
-    }
-
-    private void SelfDestruct()
-    {
+    private void OnCollisionEnter2D(Collision2D collision) {
         this.gameObject.SetActive(false);
     }
 }

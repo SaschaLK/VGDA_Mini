@@ -5,10 +5,11 @@ using UnityEngine;
 public class MobBehavior : MonoBehaviour {
 
     private Transform targetPos;//set target from inspector instead of looking in Update
-    public float speed = 3f;
+    public float speed;
     public GameObject projectilePrefab;
     private Rigidbody2D rb;
     private Animator mobAnimator;
+    public bool isFlying;
 
     private void Awake() {
         LoadProjectile();
@@ -21,7 +22,13 @@ public class MobBehavior : MonoBehaviour {
     }
 
     void Update() {
-        FollowPlayer(); //move towards the player
+        if (isFlying) {
+            Fly();
+        }
+        else {
+            FollowPlayer(); //move towards the player
+        }
+
         Shoot();
     }
 
@@ -41,14 +48,18 @@ public class MobBehavior : MonoBehaviour {
         }
     }
 
+    private void Fly() {
+        if(targetPos.position != transform.position) {
+            rb.velocity = new Vector2((targetPos.position.x - transform.position.x) * .3f, (targetPos.position.y - transform.position.y) * .3f);
+        }
+    }
+
     private void Shoot() {
         if (!projectilePrefab.activeSelf) {
             mobAnimator.SetTrigger("Attack");
             projectilePrefab.SetActive(true);
             projectilePrefab.transform.position = this.transform.position;
-            projectilePrefab.GetComponent<Rigidbody2D>().velocity =
-                new Vector2((targetPos.position.x - transform.position.x) * .3f,
-                (targetPos.position.y - transform.position.y) * .3f);
+            projectilePrefab.GetComponent<Rigidbody2D>().velocity = new Vector2((targetPos.position.x - transform.position.x) * .3f, (targetPos.position.y - transform.position.y) * .3f);
             Invoke("KillProjectile", 4f);
         }
 

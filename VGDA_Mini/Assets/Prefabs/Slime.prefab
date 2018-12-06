@@ -25,8 +25,8 @@ GameObject:
   - component: {fileID: 61605749103159892}
   - component: {fileID: 95257236604944460}
   m_Layer: 10
-  m_Name: Mob
-  m_TagString: Untagged
+  m_Name: Slime
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +121,7 @@ MonoBehaviour:
   speed: 3
   projectilePrefab: {fileID: 1617855413993646, guid: c316c24dc3d5b7941afa469d234de476,
     type: 2}
+  isFlying: 0
 --- !u!212 &212556834022391764
 SpriteRenderer:
   m_ObjectHideFlags: 1

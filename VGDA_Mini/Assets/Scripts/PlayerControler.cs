@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerControler : MonoBehaviour {
 
+    public static PlayerControler instance;
+
     public Rigidbody2D myRigidBody; //player RigidBody
     public float jumpForce = 4;
     public float movementSpeed = 5;
@@ -12,6 +14,10 @@ public class PlayerControler : MonoBehaviour {
     private Animator playerAnimator;
     private Vector3 right = new Vector3(-1,1,1);
     private Vector3 left = new Vector3(1,1,1);
+
+    private void Awake() {
+        instance = this;
+    }
 
     private void Start() {
         playerAnimator = GetComponent<Animator>();
@@ -47,6 +53,9 @@ public class PlayerControler : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Floor") && onFloor == false) {
             onFloor = true;
+        }
+        if (other.gameObject.CompareTag("Enemy")) {
+            gameObject.SetActive(false);
         }
     }
 }
