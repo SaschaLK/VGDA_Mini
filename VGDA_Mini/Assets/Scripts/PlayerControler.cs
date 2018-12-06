@@ -9,11 +9,15 @@ public class PlayerControler : MonoBehaviour {
     public Rigidbody2D myRigidBody; //player RigidBody
     public float jumpForce = 4;
     public float movementSpeed = 5;
+    public float deathTime;
+    private bool isAlive;
     private bool onFloor = true; //to see if it's grounded
     private float horizontalInput;
-    private Animator playerAnimator;
     private Vector3 right = new Vector3(-1,1,1);
     private Vector3 left = new Vector3(1,1,1);
+    private Animator playerAnimator;
+    private SpriteRenderer sr;
+    private AudioSource audioSource;
 
     private void Awake() {
         instance = this;
@@ -21,6 +25,10 @@ public class PlayerControler : MonoBehaviour {
 
     private void Start() {
         playerAnimator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
+        sr.enabled = true;
+        isAlive = true;
     }
 
     private void Update() {
@@ -28,7 +36,7 @@ public class PlayerControler : MonoBehaviour {
     }
 
     // this function makes the player move left, right and jump.
-    void MovePlayer() {
+    private void MovePlayer() {
         if(Input.GetAxis("Horizontal") > 0.5) {
             transform.localScale = right;
             playerAnimator.SetTrigger("playerWalk");
@@ -50,13 +58,21 @@ public class PlayerControler : MonoBehaviour {
         }
     }
     //check the collision with the floor to avoid jumping in the air
+
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.CompareTag("Floor") && onFloor == false) {
             onFloor = true;
         }
-        if (other.gameObject.CompareTag("Enemy")) {
-            gameObject.SetActive(false);
+        if (other.gameObject.CompareTag("Enemy") && isAlive) {
+            isAlive = false;
+            sr.enabled = false;
+            audioSource.Play();
+            Invoke("Die", deathTime);
         }
+    }
+
+    private void Die() {
+        GameManagerBehaviour.instance.GoBackToMainMenu();
     }
 }
 

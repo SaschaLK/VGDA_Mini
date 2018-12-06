@@ -16,7 +16,6 @@ public class MobManager : MonoBehaviour {
     private void Awake() {
         if (instance == null) {
             instance = this;
-            DontDestroyOnLoad(instance);
         }
     }
 
@@ -37,12 +36,17 @@ public class MobManager : MonoBehaviour {
     }
 
     private IEnumerator SpawnMob() {
-        foreach (GameObject mob in mobList) {
-            if (!mob.activeSelf) {
-                mob.transform.position = this.transform.position;
-                mob.SetActive(true);
-                yield return new WaitForSecondsRealtime(spawnDelay);
+        if(this.transform != null) {
+            foreach (GameObject mob in mobList) {
+                if (!mob.activeSelf) {
+                    mob.transform.position = this.transform.position;
+                    mob.SetActive(true);
+                    yield return new WaitForSecondsRealtime(spawnDelay);
+                }
             }
+        }
+        else {
+            StopAllCoroutines();
         }
     }
 }
