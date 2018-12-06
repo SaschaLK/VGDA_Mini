@@ -6,16 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour {
 
-   
-
-    public void LoadScene(string SceneName)
-    {
+    public void LoadScene(string SceneName) {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneName);
     }
 
-    public void ExitGame()
-    {
+    public void ExitGame() {
         Time.timeScale = 1f;
         Application.Quit();
     }
