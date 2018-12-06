@@ -81,10 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 0}
-  mobList:
+  mobs:
   - {fileID: 1175913970934738, guid: 7dbbb2a8d423d1a4489d19439d9c8aef, type: 2}
-  - {fileID: 1175913970934738, guid: 7dbbb2a8d423d1a4489d19439d9c8aef, type: 2}
-  - {fileID: 1175913970934738, guid: 7dbbb2a8d423d1a4489d19439d9c8aef, type: 2}
-  - {fileID: 1175913970934738, guid: 7dbbb2a8d423d1a4489d19439d9c8aef, type: 2}
-  - {fileID: 1175913970934738, guid: 7dbbb2a8d423d1a4489d19439d9c8aef, type: 2}
-  spawnPoint: {fileID: 4688519100269858}
+  mobCount: 5
+  spawnDelay: 5

@@ -12,7 +12,7 @@ public class MobJump : MonoBehaviour {
 
     private void Awake()
     {
-        targetPos = MobManager.getplayerPos();
+        targetPos = MobManager.GetPlayerPosition();
     }
     void Start () {
 		
@@ -29,8 +29,8 @@ public class MobJump : MonoBehaviour {
         {
             //thisMob.transform.Translate(new Vector3(thisMob.rb.velocity.x, jumpSpeed * Time.deltaTime, 0));
 
-            thisMob.GetComponent<Rigidbody2D>().velocity = new Vector2(thisMob.rb.velocity.x,
-                (targetPos.position.y - thisMob.transform.position.y) * jumpSpeed);
+            //thisMob.GetComponent<Rigidbody2D>().velocity = new Vector2(thisMob.rb.velocity.x,
+                //(targetPos.position.y - thisMob.transform.position.y) * jumpSpeed);
 
 
             isGround = false;
@@ -39,8 +39,8 @@ public class MobJump : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        thisMob.GetComponent<Rigidbody2D>().velocity = new Vector2(thisMob.rb.velocity.x, 0);
-        isGround = true;
+        //thisMob.GetComponent<Rigidbody2D>().velocity = new Vector2(thisMob.rb.velocity.x, 0);
+        //isGround = true;
     }
 
   
