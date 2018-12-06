@@ -8,13 +8,15 @@ public class MobBehavior : MonoBehaviour {
     public float speed = 3f;
     public GameObject projectilePrefab;
     private Rigidbody2D rb;
+    private Animator mobAnimator;
 
     private void Awake() {
         LoadProjectile();
-        rb = this.GetComponent<Rigidbody2D>();
     }
 
     void Start() {
+        mobAnimator = GetComponent<Animator>();
+        rb = this.GetComponent<Rigidbody2D>();
         targetPos = MobManager.GetPlayerPosition();
     }
 
@@ -41,6 +43,7 @@ public class MobBehavior : MonoBehaviour {
 
     private void Shoot() {
         if (!projectilePrefab.activeSelf) {
+            mobAnimator.SetTrigger("Attack");
             projectilePrefab.SetActive(true);
             projectilePrefab.transform.position = this.transform.position;
             projectilePrefab.GetComponent<Rigidbody2D>().velocity =
