@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Main.unity
+  - enabled: 0
+    path: Assets/Scenes/Legacy/MainLegacy.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Kenny MainMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 43f38b434c2d8a74e8b520d69a79ce5a
-  - enabled: 1
-    path: Assets/Scenes/KennyTestLoad.unity
+  - enabled: 0
+    path: Assets/Scenes/Legacy/KennyTestLoad.unity
     guid: 81b456fe704156641b214989cb4ab71e
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: edaf65ac767c8ac47a95e06ef0a620b8
   m_configObjects: {}
